@@ -4,13 +4,23 @@ from typing import List, Union
 
 
 def maximo_recursivo(*args) -> float:
+    
     """Toma una cantidad arbitraria de números y devuelve el mayor.
     Restricciónes:
         - No utilizar la función max
         - No utilizar la ninguna otra función salvo maximo_recursivo
         - Resolver de manera recursiva
     """
-
+   
+    if len(args) == 1:
+        return args[0]
+    else:
+        return args[0] if args[0] > maximo_recursivo(*args[1:]) else maximo_recursivo(*args[1:])
+if __name__ == "__main__":
+    print(maximo_recursivo(1, 10, 5, -5))  # debe imprimir 10
+    print(maximo_recursivo(4, 9, 18, 6))  # debe imprimir 18
+    print(maximo_recursivo(24, 9, 18, 20))  # debe imprimir 24
+    print(maximo_recursivo(24, 9, 18, 30))  # debe imprimir 30
 
 # NO MODIFICAR - INICIO
 if __name__ == "__main__":
@@ -32,7 +42,7 @@ def sumatoria_reduce(n: int) -> int:
     Restricción: Utilizar la función reduce.
     Referencia: https://docs.python.org/3/library/functools.html#functools.reduce  # noqa: E501
     """
-
+    return reduce(lambda x, y: x + y, range(1, n+1))
 
 # NO MODIFICAR - INICIO
 if __name__ == "__main__":
