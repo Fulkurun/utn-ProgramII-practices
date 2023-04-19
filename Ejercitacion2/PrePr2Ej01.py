@@ -6,7 +6,6 @@
 numeros = input("Ingresa una lista de números separados por comas: ")
 numeros = [int(x.strip()) for x in numeros.split(",")]
 maximo = max(numeros)
-print("El máximo es:", maximo)
 maximo = numeros[0]
 for num in numeros:
     if num > maximo:
